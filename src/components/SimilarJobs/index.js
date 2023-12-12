@@ -1,50 +1,43 @@
-import {MdLocationOn} from 'react-icons/md'
 import {AiFillStar} from 'react-icons/ai'
+import {MdLocationOn} from 'react-icons/md'
+import {BsBriefcaseFill} from 'react-icons/bs'
+
 import './index.css'
 
 const SimilarJobs = props => {
-  const {similarJobData} = props
+  const {jobDetails} = props
   const {
     companyLogoUrl,
-    // eslint-disable-next-line no-unused-vars
-    id,
-    jobDescription,
-    employmentType,
-    location,
-    rating,
     title,
-  } = similarJobData
-
-  console.log(similarJobData)
+    rating,
+    location,
+    employmentType,
+    jobDescription,
+  } = jobDetails
 
   return (
-    <li className="similar-job-li-container">
-      <div className="img-job-title-container">
+    <li className="similar-job-container">
+      <div className="job-item-header">
         <img
-          className="company-job-logo"
-          src={companyLogoUrl}
+          className="company-logo-image"
           alt="similar job company logo"
+          src={companyLogoUrl}
         />
-        <div className="title-job-rating-container">
-          <h1 className="title-job-heading">{title}</h1>
-          <div className="star-job-rating-container">
-            <AiFillStar className="star-job-icon" />
-            <p className="rating-job-text">{rating}</p>
+        <div className="job-name-rating-container">
+          <h1 className="job-title">{title}</h1>
+          <div className="star-rating-container">
+            <AiFillStar className="star-icon" />
+            <p className="rating-text">{rating}</p>
           </div>
         </div>
       </div>
-      <div className="second-part-job-container">
-        <h1 className="description-job-heading">Description</h1>
-        <p className="description-job-para">{jobDescription}</p>
-      </div>
-      <div className="location-job-details-type-container">
-        <div className="location-job-icon-location-container">
-          <MdLocationOn className="location-job-icon" />
-          <p className="location-job">{location}</p>
-        </div>
-        <div className="employment-job-type-icon-employment-type-container">
-          <p className="job-type">{employmentType}</p>
-        </div>
+      <h1 className="description-title">Description</h1>
+      <p className="job-description">{jobDescription}</p>
+      <div className="job-item-info-container">
+        <MdLocationOn className="location-icon" />
+        <p>{location}</p>
+        <BsBriefcaseFill className="job-icon" />
+        <p>{employmentType}</p>
       </div>
     </li>
   )
